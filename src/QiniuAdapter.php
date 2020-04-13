@@ -534,7 +534,7 @@ class QiniuAdapter extends AbstractAdapter
     {
         $stat = $this->getMetadata($path);
         if ($stat) {
-            return ['timestamp' => $stat['putTime']];
+            return ['timestamp' => intval($stat['putTime']/10000000)];
         }
 
         return false;
